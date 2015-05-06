@@ -1,0 +1,77 @@
+GIT
+  remote: https://github.com/factor-io/factor.git
+  revision: eeb4384dd5b185577ad3e734b8788b3d57a8564f
+  specs:
+    factor (2.9.07)
+      commander (~> 4.3, >= 4.3.4)
+      configatron (~> 4.5, >= 4.5.0)
+      rainbow (~> 2.0, >= 2.0.0)
+      rest-client (~> 1.8, >= 1.8.0)
+      rspec (~> 3.2, >= 3.2.0)
+      varify (~> 0.0.3)
+      wrong (~> 0.7.1)
+
+PATH
+  remote: .
+  specs:
+    factor-connector-jira (3.0.0)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    commander (4.3.4)
+      highline (~> 1.7.2)
+    configatron (4.5.0)
+    diff-lcs (1.2.5)
+    domain_name (0.5.24)
+      unf (>= 0.0.5, < 1.0.0)
+    highline (1.7.2)
+    http-cookie (1.0.2)
+      domain_name (~> 0.5)
+    mime-types (2.5)
+    netrc (0.10.3)
+    predicated (0.2.6)
+    rainbow (2.0.0)
+    rake (10.4.2)
+    rest-client (1.8.0)
+      http-cookie (>= 1.0.2, < 2.0)
+      mime-types (>= 1.16, < 3.0)
+      netrc (~> 0.7)
+    rspec (3.2.0)
+      rspec-core (~> 3.2.0)
+      rspec-expectations (~> 3.2.0)
+      rspec-mocks (~> 3.2.0)
+    rspec-core (3.2.3)
+      rspec-support (~> 3.2.0)
+    rspec-expectations (3.2.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-mocks (3.2.1)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.2.0)
+    rspec-support (3.2.2)
+    ruby2ruby (2.1.4)
+      ruby_parser (~> 3.1)
+      sexp_processor (~> 4.0)
+    ruby_parser (3.6.6)
+      sexp_processor (~> 4.1)
+    sexp_processor (4.5.1)
+    unf (0.1.4)
+      unf_ext
+    unf_ext (0.0.7.1)
+    varify (0.0.4)
+    wrong (0.7.1)
+      diff-lcs (~> 1.2.5)
+      predicated (~> 0.2.6)
+      ruby2ruby (>= 2.0.1)
+      ruby_parser (>= 3.0.1)
+      sexp_processor (>= 4.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  factor!
+  factor-connector-jira!
+  rake (~> 10.4.2)
+  rspec (~> 3.2.0)
