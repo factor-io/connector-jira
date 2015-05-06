@@ -12,7 +12,7 @@ Factor.io Connector for integrating with JIRA.
 ## Installation
 Add this to your `Gemfile` in your [Connector](https://github.com/factor-io/connector)
 ```ruby
-gem 'factor-connector-jira', '~> 0.0.3'
+gem 'factor-connector-jira', '~> 3.0.0'
 ```
 
 Add this to your `init.rb`  in your [Connector](https://github.com/factor-io/connector)
