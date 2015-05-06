@@ -13,6 +13,7 @@ Gem::Specification.new do |s|
   
   s.require_paths = ['lib']
 
+  s.add_development_dependency 'coveralls', '~> 0.8.1'
   s.add_development_dependency 'rspec', '~> 3.2.0'
   s.add_development_dependency 'rake', '~> 10.4.2'
 end

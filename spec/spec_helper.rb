@@ -1,6 +1,8 @@
 require 'rspec'
 require 'factor/connector/test'
+require 'coveralls'
 
+Coveralls.wear!
 
 require 'factor-connector-jira'
 

@@ -1,5 +1,5 @@
 [![Code Climate](https://codeclimate.com/github/factor-io/connector-jira/badges/gpa.svg)](https://codeclimate.com/github/factor-io/connector-jira)
-[![Test Coverage](https://codeclimate.com/github/factor-io/connector-jira/badges/coverage.svg)](https://codeclimate.com/github/factor-io/connector-jira)
+[![Coverage Status](https://coveralls.io/repos/factor-io/connector-jira/badge.svg)](https://coveralls.io/r/factor-io/connector-jira)
 [![Build Status](https://travis-ci.org/factor-io/connector-jira.svg?branch=master)](https://travis-ci.org/factor-io/connector-jira)
 [![Dependency Status](https://gemnasium.com/factor-io/connector-jira.svg)](https://gemnasium.com/factor-io/connector-jira)
 [![Gem Version](https://badge.fury.io/rb/factor-connector-jira.svg)](http://badge.fury.io/rb/factor-connector-jira)
