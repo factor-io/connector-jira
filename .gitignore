@@ -36,3 +36,6 @@ build/
 # Flobits
 .flooignore
 .floo
+
+# JIRA login data
+jira_creditentials.rb
