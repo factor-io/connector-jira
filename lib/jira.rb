@@ -48,3 +48,20 @@ create_new_issue.save(issue)
 pp create_new_issue.key # return the task key
 
 ###############################################################################
+# List all issues from one project
+
+
+# Find a specific project by key
+project = client.Project.find('UP')
+# pp project
+
+# List of all issues
+project.issues.each do |issue|
+  puts "#{issue.id} - #{issue.fields['summary']}"
+end
+
+###############################################################################
+
+
+
+###############################################################################
