@@ -1,7 +1,8 @@
 require 'rubygems'
-require 'pp'
+require 'pp' # pretty print
 require 'jira'
 require './jira_creditentials.rb'
+require './lib/jira_calls_data.rb'
 
 # Consider the use of :use_ssl and :ssl_verify_mode options if running locally
 # for tests.
@@ -22,9 +23,28 @@ options = {
 
 client = JIRA::Client.new(options)
 
-# Show all projects
+# Show all projectsjira_calls_data
 projects = client.Project.all
 
 projects.each do |project|
-  puts "Project -> key: #{project.key}, name: #{project.name}"
+  puts "Project -> key: #{project.key}, name: #{project.name}, id: #{project.id}"
 end
+
+# puts projects
+
+###############################################################################
+# create new issue
+
+issue = { "fields" => { "summary" => "This is a summary",
+          "project" => { "id" => "10001"},
+          "issuetype" => {"id"=>"3"}
+                      }
+        }
+
+create_new_issue = client.Issue.build
+create_new_issue.save(issue)
+# pp create_new_issue
+# create_new_issue = client.Issue.build
+pp create_new_issue.key # return the task key
+
+###############################################################################
