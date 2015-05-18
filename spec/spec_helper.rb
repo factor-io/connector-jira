@@ -13,7 +13,7 @@ RSpec.configure do |c|
     @username = ENV['JIRA_USERNAME']
     @password = ENV['JIRA_PASSWORD']
     @site     = ENV['JIRA_SITE']
-    @runtime = Factor::Connector::Runtime.new(JiraConnectorDefinition)
+    @runtime  = Factor::Connector::Runtime.new(JiraConnectorDefinition)
   end
 
 end

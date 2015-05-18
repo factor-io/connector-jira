@@ -1,16 +1,14 @@
 require 'rubygems'
 require 'pp' # pretty print
 require 'jira'
-require './jira_creditentials.rb'
-require './lib/jira_calls_data.rb'
 
 # Consider the use of :use_ssl and :ssl_verify_mode options if running locally
 # for tests.
 
-username = JIRA_USERNAME # TODO move to proper ENV
-password = JIRA_PASSWORD # TODO move to proper ENV
+username = ENV['JIRA_USERNAME']
+password = ENV['JIRA_PASSWORD']
 
-# p username, password
+ # p username, password
 
 options = {
             :username => username,
@@ -24,11 +22,14 @@ options = {
 client = JIRA::Client.new(options)
 
 # Show all projectsjira_calls_data
-projects = client.Project.all
+# projects = client.Project.all
+# projects_array = []
+# projects.each do |project|
+  # projects_array << project.key
 
-projects.each do |project|
-  puts "Project -> key: #{project.key}, name: #{project.name}, id: #{project.id}"
-end
+  # puts "Project -> key: #{project.key}, name: #{project.name}, id: #{project.id}"
+  # pp projects_array
+# end
 
 # puts projects
 
@@ -46,22 +47,46 @@ create_new_issue.save(issue)
 # pp create_new_issue
 # create_new_issue = client.Issue.build
 pp create_new_issue.key # return the task key
-
+pp client
 ###############################################################################
 # List all issues from one project
 
-
 # Find a specific project by key
-project = client.Project.find('UP')
+# project = client.Project.find('UP')
+# p project
 # pp project
 
 # List of all issues
-project.issues.each do |issue|
-  puts "#{issue.id} - #{issue.fields['summary']}"
-end
+# project.issues.each do |issue|
+#   puts "#{issue.id} - #{issue.fields['summary']}"
+#
+# end
+
+
 
 ###############################################################################
+# List All Issues from All projects
+# DOES NOT WORK !!! Both methods
 
+# client.Issue.all.each do |issue|
+#   puts "#{issue.id} - #{issue.fields['summary']}"
+# end
 
-
+#
+# # List issues by JQL query
+# # ------------------------
+# client.Issue.jql('PROJECT = "UP"', [comments, summary]).each do |issue|
+#   puts "#{issue.id} - #{issue.fields['summary']}"
+# end
 ###############################################################################
+# Delete an issue DOES NOT WORK
+# ---------------
+# issue = client.Issue.find('UP-12')
+
+# if issue.delete
+#   puts "Delete sucessful"
+# else
+#   puts "Delete failed"
+# end
+###############################################################################
+# https://github.com/sumoheavy/jira-ruby/issues/69
