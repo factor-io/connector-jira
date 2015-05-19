@@ -41,7 +41,7 @@ class JiraConnectorDefinition < Factor::Connector::Definition
   resource :issues do
     action :add do |params|
 
-    issue_fields = { "fields" => { "connector call" => "This is RSPEC",
+    issue_fields = { "fields" => { "summary" => "This is rspec",
       "project" => { "id" => "10001"},
       "issuetype" => {"id"=>"3"}
       }
