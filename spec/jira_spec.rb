@@ -13,23 +13,23 @@ describe JiraConnectorDefinition do
   #   end
   # end
   #
-  # describe 'issues' do
-  #   describe 'add' do
-  #     it 'creates new issue on the web' do
-  #       @runtime.run([:issues,:add], username:@username, password:@password, site:@site)
-  #       expect(@runtime).to eq Array
-  #     end
-  #   end
-  # end
-
-  describe 'jira_all' do
-    describe 'connect' do
+  describe 'issues' do
+    describe 'add' do
       it 'creates new issue on the web' do
-        @runtime.run([:jira_all,:connect], username:@username, password:@password, site:@site)
+        @runtime.run([:issues,:add], username:@username, password:@password, site:@site)
         expect(@runtime).to respond
       end
     end
   end
+  #
+  # describe 'jira_all' do
+  #   describe 'connect' do
+  #     it 'creates new issue on the web' do
+  #       @runtime.run([:jira_all,:connect], username:@username, password:@password, site:@site)
+  #       expect(@runtime).to respond
+  #     end
+  #   end
+  # end
 
 
 end
