@@ -23,6 +23,9 @@ class JiraConnectorDefinition < Factor::Connector::Definition
   resource :jira_all do
     action :connect do |params|
       client = init_jira(params)
+      answer = client.Project.all
+      print answer
+        binding.pry
     end
   end
 
