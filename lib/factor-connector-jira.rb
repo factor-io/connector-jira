@@ -42,19 +42,26 @@ class JiraConnectorDefinition < Factor::Connector::Definition
   end
 
   resource :issues do
-    action :add do |params|
-
-    issue_fields = { "fields" => { "summary" => "This is rspec",
-      "project" => { "id" => "10001"},
-      "issuetype" => {"id"=>"3"}
+    action :add do |params| # fields must be in params,
+# TODO: which fields are required and which are optional, setup hash to reflect that
+# TODO: find out how to add project_id to logs, missing method?
+      summary = params[:summary]
+      project_id = params[:project_id]
+      issue_type = params[:issue_type]
+      
+      issue_fields = { "fields" => { "summary" => summary,
+        "project" => { "id" => project_id},
+        "issuetype" => {"id"=> issue_type}
+        }
       }
-    }
 
-    client = init_jira(params)
+      client = init_jira(params)
 
-    create_new_issue = client.Issue.build
-    create_new_issue.save(issue_fields)
-    # what to return ?
+      new_issue = client.Issue.build
+      new_issue.save(issue_fields)
+      info "Issue number #{new_issue.id} was created. Summary: #{new_issue.summary}"
+
+      new_issue
     end
   end
 

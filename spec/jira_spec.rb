@@ -42,21 +42,17 @@ describe JiraConnectorDefinition do
       end
     end
   end
-  #
-  # describe 'issues' do
-  #   describe 'add' do
-  #     it 'creates new issue on the web' do
-  #       @runtime.run([:issues,:add], username:@username, password:@password, site:@site)
-  #       expect(@runtime).to respond
-  #     end
-  #   end
-  # end
-  #
 
-
-
-
-
+  describe 'issues' do
+    describe 'add' do
+      it 'creates new issue on the web' do
+        @runtime.run([:issues,:add], username:@username, password:@password, site:@site,
+                                      summary:"This is summary", project_id: 10001, issue_type:"3")
+        expect(@runtime).to message info: "Issue number 10171 was created. Summary: This is summary"
+        ## TODO: IT IS GOING TO FAIL LATER BECAUSE ID IS GIVEN ON THE FLY. FIND BETTER FIELDS TO TEST
+      end
+    end
+  end
 
 
 
