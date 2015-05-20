@@ -20,8 +20,8 @@ class JiraConnectorDefinition < Factor::Connector::Definition
     client
   end
 
-  resource :jira_all do
-    action :connect do |params| # just for testing for now
+  resource :jira_main do
+    action :initialize do |params|
       client = init_jira(params)
       info "Client created at #{client.request_client.options[:site]} for #{client.request_client.options[:username]}"
       client

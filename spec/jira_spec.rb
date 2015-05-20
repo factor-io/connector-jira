@@ -29,6 +29,14 @@ describe JiraConnectorDefinition do
 
   end
 
+  describe 'jira_main' do
+    describe 'initialize' do
+      it 'creates new issue on the web' do
+        @runtime.run([:jira_main,:initialize], username:@username, password:@password, site:@site)
+        expect(@runtime).to message info: "Client created at https://factor.atlassian.net/rest/api/2/ for argoncode18"
+      end
+    end
+  end
 
   # describe 'projects' do
   #   describe 'list' do
@@ -50,14 +58,7 @@ describe JiraConnectorDefinition do
   #   end
   # end
   #
-  # describe 'jira_all' do
-  #   describe 'connect' do
-  #     it 'creates new issue on the web' do
-  #       @runtime.run([:jira_all,:connect], username:@username, password:@password, site:@site)
-  #       expect(@runtime).to respond
-  #     end
-  #   end
-  # end
+
 
 
 
