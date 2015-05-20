@@ -36,7 +36,7 @@ class JiraConnectorDefinition < Factor::Connector::Definition
       projects.each do |project|
         projects_list << project.key
       end
-
+      info "You have #{projects_list.length} projects"
       projects_list
     end
   end
