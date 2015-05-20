@@ -47,7 +47,8 @@ create_new_issue.save(issue)
 # pp create_new_issue
 # create_new_issue = client.Issue.build
 pp create_new_issue.key # return the task key
-pp client
+# pp create_new_issue
+pp create_new_issue.self
 ###############################################################################
 # List all issues from one project
 

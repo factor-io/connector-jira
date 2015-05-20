@@ -20,6 +20,14 @@ class JiraConnectorDefinition < Factor::Connector::Definition
     client
   end
 
+  resource :test_definitions do
+    action :test_info do
+      info "This is info message added to logs"
+    end
+  end
+
+
+
   resource :jira_all do
     action :connect do |params| # just for testing for now
       client = init_jira(params)

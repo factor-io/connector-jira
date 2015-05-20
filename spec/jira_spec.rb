@@ -2,6 +2,16 @@ require 'spec_helper'
 require 'pry'
 
 describe JiraConnectorDefinition do
+  describe 'test_definition' do
+    describe 'test_info' do
+      it 'logs info message' do
+        @runtime.run([:test_definitions, :test_info])
+        expect(@runtime).to message info: "This is info message added to logs"
+      end
+    end
+  end
+
+
   # describe 'projects' do
   #   describe 'list' do
   #     it 'can get a list' do
@@ -30,6 +40,11 @@ describe JiraConnectorDefinition do
   #     end
   #   end
   # end
+
+
+
+
+
 
 
 end
