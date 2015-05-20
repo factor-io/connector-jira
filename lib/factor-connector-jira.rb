@@ -8,9 +8,9 @@ class JiraConnectorDefinition < Factor::Connector::Definition
 
   def init_jira(params)
     connection_settings = {
-      :username => ENV['JIRA_USERNAME'],
-      :password => ENV['JIRA_PASSWORD'],
-      :site     => ENV['JIRA_SITE'],
+      :username => params[:username],
+      :password => params[:password],
+      :site     => params[:site],
 
       :context_path => '',
       :auth_type => :basic
@@ -20,25 +20,11 @@ class JiraConnectorDefinition < Factor::Connector::Definition
     client
   end
 
-  resource :test_definitions do
-    action :test_info do
-      info "This is info message added to logs"
-    end
-
-    action :test_warn do
-      warn "This is warn message added to logs"
-    end
-
-    action :test_error do
-      error "This is error message added to logs"
-    end
-  end
-
-
-
   resource :jira_all do
     action :connect do |params| # just for testing for now
       client = init_jira(params)
+      info "Client created at #{client.request_client.options[:site]} for #{client.request_client.options[:username]}"
+      client
     end
   end
 
@@ -50,6 +36,7 @@ class JiraConnectorDefinition < Factor::Connector::Definition
       projects.each do |project|
         projects_list << project.key
       end
+
       projects_list
     end
   end
@@ -68,6 +55,20 @@ class JiraConnectorDefinition < Factor::Connector::Definition
     create_new_issue = client.Issue.build
     create_new_issue.save(issue_fields)
     # what to return ?
+    end
+  end
+
+  resource :test_definitions do
+    action :test_info do
+      info "This is info message added to logs"
+    end
+
+    action :test_warn do
+      warn "This is warn message added to logs"
+    end
+
+    action :test_error do
+      error "This is error message added to logs"
     end
   end
 
