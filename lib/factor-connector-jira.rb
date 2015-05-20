@@ -24,6 +24,14 @@ class JiraConnectorDefinition < Factor::Connector::Definition
     action :test_info do
       info "This is info message added to logs"
     end
+
+    action :test_warn do
+      warn "This is warn message added to logs"
+    end
+
+    action :test_error do
+      error "This is error message added to logs"
+    end
   end
 
 

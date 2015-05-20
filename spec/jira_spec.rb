@@ -9,6 +9,24 @@ describe JiraConnectorDefinition do
         expect(@runtime).to message info: "This is info message added to logs"
       end
     end
+
+    describe 'test_warn' do
+      it 'logs warn message' do
+        @runtime.run([:test_definitions, :test_warn])
+        expect(@runtime).to message warn: "This is warn message added to logs"
+      end
+    end
+
+    describe 'test_error' do
+      it 'logs error message' do
+        @runtime.run([:test_definitions, :test_error])
+        expect(@runtime).to message error: "This is error message added to logs"
+      end
+    end
+
+
+
+
   end
 
 
